@@ -24,25 +24,23 @@
           >
             <span @click="setActive(idx)">{{ idx + 1 }}</span> {{ item.title }}
           </li>
-          <!--<li class="steps-item done"><span>2</span> Шаг 2</li>
-          <li class="steps-item active"><span>3</span> Шаг 3</li>
-          <li class="steps-item"><span>4</span> Шаг 4</li>-->
         </ul>
 
         <div>
           <button
             class="btn"
             @click="prev"
-            :disabled="activeIndex === 0"
+            :disabled="isDisabledBtn"
           >
-          Назад
-        </button>
-        <button
-          class="btn primary"
-          @click="nextOfFinish"
-        >
-          {{ activeIndex === steps.length - 1 ? 'Начать заново' : 'Вперед' }}
-        </button>
+            {{ isResetBtn }}
+          </button>
+          <button
+            class="btn primary"
+            :style="{display: isDisplayBtn}"
+            @click="nextOfFinish"
+          >
+            {{ isFinalStep }}
+          </button>
         </div>
       </div>
     </div>
